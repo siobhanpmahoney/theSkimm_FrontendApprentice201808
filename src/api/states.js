@@ -1,0 +1,60 @@
+const STATES_LIST = [
+  "New York",
+  "Maryland",
+  "Georgia",
+  "Maine",
+  "Texas",
+  "Louisiana",
+  "North Dakota",
+  "Idaho",
+  "Massachusetts",
+  "Nevada",
+  "West Virginia",
+  "Wyoming",
+  "South Carolina",
+  "Ohio",
+  "New Hampshire",
+  "Colorado",
+  "Des Iowa",
+  "Delaware",
+  "Kentucky",
+  "Pennsylvania",
+  "Connecticut",
+  "Montana",
+  "Hawaii",
+  "Indiana",
+  "Mississippi",
+  "Missouri",
+  "Alaska",
+  "Michigan",
+  "Nebraska",
+  "Arkansas",
+  "Wisconsin",
+  "Alabama",
+  "Vermont",
+  "Tennesee",
+  "Oklahoma",
+  "Washington",
+  "Arizona",
+  "South Dakota",
+  "Rhode Island",
+  "North Carolina",
+  "Virginia",
+  "California",
+  "Oregon",
+  "Utah",
+  "Mexico",
+  "Illinois",
+  "Minnesota",
+  "Florida",
+  "Kansas",
+  "New Jersey"
+]
+
+export function fetchStates () {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(STATES_LIST)
+    }, 200)
+  })
+}

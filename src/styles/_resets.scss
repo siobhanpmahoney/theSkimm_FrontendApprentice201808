@@ -1,0 +1,27 @@
+@mixin browser-margin-reset {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+@mixin browser-padding-reset {
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+%ul-reset {
+  @include browser-margin-reset;
+  @include browser-padding-reset;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,34 @@
+.nav {
+  max-width: 100%;
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+.nav__list {
+  @extend %ul-reset;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+
+}
+
+.nav__list-item {
+  border-radius: 5px;
+  border: 1px solid black;
+  &:hover {
+    cursor: pointer;
+    background-color: $teal;
+    color: white;
+  }
+}
+
+.nav__list-item__link {
+  padding: 5px 10px;
+}
+
+.nav__list-item--active {
+  background-color: $yellow;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router'
 import Nav from './components/Nav/Nav'
+import Home from './components/Home'
 
 class App extends Component{
   render () {
@@ -10,12 +11,10 @@ class App extends Component{
         <Nav />
         {/* Use react router and your custom components to complete the task. */}
         <Switch>
-          <Route>
-            <div className="home">
-              <h2 className="heading">Welcome to the States and Countries app.</h2>
-              <p className="copy">Select a topic above!</p>
-            </div>
-          </Route>
+
+{/* Moved jsx elements for homepage into separate component /Home.js */}
+        <Route exact path="/" component={Home} />
+
         </Switch>
 
       </div>

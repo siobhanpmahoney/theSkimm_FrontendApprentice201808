@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Switch, Route } from 'react-router'
 import Nav from './components/Nav/Nav'
 import Home from './components/Home'
+import CountryContainer from './components/countries/CountryContainer'
+import StateContainer from './components/states/StateContainer'
 
 class App extends Component{
   render () {
@@ -14,6 +16,9 @@ class App extends Component{
 
 {/* Moved jsx elements for homepage into separate component /Home.js */}
         <Route exact path="/" component={Home} />
+        <Route exact path="/countries" component={CountryContainer} />
+        <Route exact path="/states" component={StateContainer} />
+
 
         </Switch>
 

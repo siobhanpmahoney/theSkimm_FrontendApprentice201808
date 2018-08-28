@@ -24303,55 +24303,6 @@ var Home = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Home;
-},{"react":"node_modules/react/index.js"}],"src/components/countries/CountryContainer.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var CountryContainer = function (_React$Component) {
-  _inherits(CountryContainer, _React$Component);
-
-  function CountryContainer() {
-    _classCallCheck(this, CountryContainer);
-
-    return _possibleConstructorReturn(this, (CountryContainer.__proto__ || Object.getPrototypeOf(CountryContainer)).apply(this, arguments));
-  }
-
-  _createClass(CountryContainer, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement(
-          "h1",
-          { style: { fontSize: "200%", color: "#FF5730" } },
-          "Here in Ol Country"
-        )
-      );
-    }
-  }]);
-
-  return CountryContainer;
-}(_react2.default.Component);
-
-exports.default = CountryContainer;
 },{"react":"node_modules/react/index.js"}],"src/components/states/StateContainer.js":[function(require,module,exports) {
 "use strict";
 
@@ -24401,7 +24352,158 @@ var StateContainer = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = StateContainer;
-},{"react":"node_modules/react/index.js"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/components/Item.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Item = function Item(_ref) {
+  var name = _ref.name;
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    name
+  );
+};
+
+exports.default = Item;
+},{"react":"node_modules/react/index.js"}],"src/components/List.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Item = require('./Item');
+
+var _Item2 = _interopRequireDefault(_Item);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var List = function List(_ref) {
+  var list = _ref.list;
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    list.map(function (element) {
+      return _react2.default.createElement(_Item2.default, { name: element, key: element });
+    })
+  );
+};
+
+exports.default = List;
+},{"react":"node_modules/react/index.js","./Item":"src/components/Item.js"}],"src/components/Container.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _List = require('./List');
+
+var _List2 = _interopRequireDefault(_List);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Container = function (_React$Component) {
+  _inherits(Container, _React$Component);
+
+  function Container(props) {
+    _classCallCheck(this, Container);
+
+    var _this = _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
+
+    _this.state = {
+      items: []
+    };
+    return _this;
+  }
+
+  _createClass(Container, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.props.fetchFunction().then(function (values) {
+        _this2.setState({
+          items: values
+        });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_List2.default, { list: this.state.items })
+      );
+    }
+  }]);
+
+  return Container;
+}(_react2.default.Component);
+
+exports.default = Container;
+},{"react":"node_modules/react/index.js","./List":"src/components/List.js"}],"src/api/countries.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fetchCountries = fetchCountries;
+var COUNTRIES_LIST = ['Afghanistan', 'Åland Islands', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Bouvet Island', 'Brazil', 'British Indian Ocean Territory', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile', 'China', 'Christmas Island', 'Cocos (Keeling) Islands', 'Colombia', 'Comoros', 'Congo', 'Congo, The Democratic Republic of the', 'Cook Islands', 'Costa Rica', 'Cote D\'Ivoire', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Falkland Islands (Malvinas)', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'French Guiana', 'French Polynesia', 'French Southern Territories', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard Island and Mcdonald Islands', 'Holy See (Vatican City State)', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran, Islamic Republic Of', 'Iraq', 'Ireland', 'Isle of Man', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Democratic People\'s Republic of Korea', 'Korea, Republic of', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Lao People\'s Democratic Republic', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libyan Arab Jamahiriya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macao', 'Macedonia, The Former Yugoslav Republic of', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Martinique', 'Mauritania', 'Mauritius', 'Mayotte', 'Mexico', 'Micronesia, Federated States of', 'Moldova, Republic of', 'Monaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'Norfolk Island', 'Northern Mariana Islands', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestinian Territory, Occupied', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russian Federation', 'Rwanda', 'Saint Helena', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Pierre and Miquelon', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Georgia and the South Sandwich Islands', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Svalbard and Jan Mayen', 'Swaziland', 'Sweden', 'Switzerland', 'Syrian Arab Republic', 'Taiwan', 'Tajikistan', 'Tanzania, United Republic of', 'Thailand', 'Timor-Leste', 'Togo', 'Tokelau', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks and Caicos Islands', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'United States Minor Outlying Islands', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela', 'Viet Nam', 'Virgin Islands, British', 'Virgin Islands, U.S.', 'Wallis and Futuna', 'Western Sahara', 'Yemen', 'Zambia', 'Zimbabwe'];
+
+function fetchCountries() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve(COUNTRIES_LIST);
+    }, 200);
+  });
+}
+},{}],"src/api/states.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fetchStates = fetchStates;
+var STATES_LIST = ["New York", "Maryland", "Georgia", "Maine", "Texas", "Louisiana", "North Dakota", "Idaho", "Massachusetts", "Nevada", "West Virginia", "Wyoming", "South Carolina", "Ohio", "New Hampshire", "Colorado", "Des Iowa", "Delaware", "Kentucky", "Pennsylvania", "Connecticut", "Montana", "Hawaii", "Indiana", "Mississippi", "Missouri", "Alaska", "Michigan", "Nebraska", "Arkansas", "Wisconsin", "Alabama", "Vermont", "Tennesee", "Oklahoma", "Washington", "Arizona", "South Dakota", "Rhode Island", "North Carolina", "Virginia", "California", "Oregon", "Utah", "Mexico", "Illinois", "Minnesota", "Florida", "Kansas", "New Jersey"];
+
+function fetchStates() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve(STATES_LIST);
+    }, 200);
+  });
+}
+},{}],"src/App.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -24424,13 +24526,17 @@ var _Home = require('./components/Home');
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _CountryContainer = require('./components/countries/CountryContainer');
-
-var _CountryContainer2 = _interopRequireDefault(_CountryContainer);
-
 var _StateContainer = require('./components/states/StateContainer');
 
 var _StateContainer2 = _interopRequireDefault(_StateContainer);
+
+var _Container = require('./components/Container');
+
+var _Container2 = _interopRequireDefault(_Container);
+
+var _countries = require('./api/countries');
+
+var _states = require('./api/states');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24439,6 +24545,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import CountryContainer from './components/countries/CountryContainer'
+
 
 var App = function (_Component) {
   _inherits(App, _Component);
@@ -24446,12 +24554,34 @@ var App = function (_Component) {
   function App() {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+
+    _this.state = {
+      countries: []
+    };
+
+    _this.fetchCountries = _countries.fetchCountries.bind(_this);
+    _this.fetchStates = _states.fetchStates.bind(_this);
+    return _this;
   }
 
   _createClass(App, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      // this.fetchCountries().then(values => {
+      //   this.setState({
+      //     countries: values
+      //   })
+      // })
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
+      // let {countries} = this.fetchCountries().then(async values => values )
+
+
       return _react2.default.createElement(
         'div',
         null,
@@ -24465,8 +24595,14 @@ var App = function (_Component) {
           _reactRouter.Switch,
           null,
           _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/', component: _Home2.default }),
-          _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/countries', component: _CountryContainer2.default }),
-          _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/states', component: _StateContainer2.default })
+          _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/countries', render: function render() {
+              return _react2.default.createElement(_Container2.default, { fetchFunction: _this2.fetchCountries });
+            }
+          }),
+          _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/states', render: function render() {
+              return _react2.default.createElement(_Container2.default, { fetchFunction: _this2.fetchStates });
+            }
+          })
         )
       );
     }
@@ -24476,7 +24612,7 @@ var App = function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-},{"react":"node_modules/react/index.js","react-router":"node_modules/react-router/es/index.js","./components/Nav/Nav":"src/components/Nav/Nav.js","./components/Home":"src/components/Home.js","./components/countries/CountryContainer":"src/components/countries/CountryContainer.js","./components/states/StateContainer":"src/components/states/StateContainer.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router":"node_modules/react-router/es/index.js","./components/Nav/Nav":"src/components/Nav/Nav.js","./components/Home":"src/components/Home.js","./components/states/StateContainer":"src/components/states/StateContainer.js","./components/Container":"src/components/Container.js","./api/countries":"src/api/countries.js","./api/states":"src/api/states.js"}],"index.js":[function(require,module,exports) {
 'use strict';
 
 var _react = require('react');
@@ -24529,7 +24665,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51630' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53182' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

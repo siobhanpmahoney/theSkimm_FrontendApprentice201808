@@ -1,42 +1,66 @@
 /* option 1: FLEXBOX */
 
 
-/* .container {
+
+
+.grid-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  position: relative;
+
+  flex: 0 1 auto;
+  width: fit-content;
+
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: black;
+/*
+  border: 1px black solid;
+    border: 1px black solid;
+    display: flex;
+    width: fit-content;
+    flex-wrap: wrap; */
+
+/* border: 1px blue solid;
+display: inline-flex;
+wrap: nowrap;
+flex-direction: row; */
+
+
 }
 
 .tile-item {
+  display: inline-flex;
+  flex: 0 0 auto;
   height: 150px;
   width: 150px;
   position: relative;
-  padding: 0px;
-  box-sizing: border-box;
   border: 1px solid black;
+  padding: 0.5px;
   box-sizing: border-box;
-} */
+  margin: -0.5px;
+
+}
 
 
 /* option 2: GRID */
 
-.container {
-   /* margin: 0em;
-  padding: 0em; */
+/* .grid-container {
+
   display: grid;
    grid-template-columns: repeat(auto-fill,minmax(150px, 1fr));
     border: 1px solid black;
   grid-gap: 1px;
+  width: 100%
 }
 
 .tile-item {
    margin: -1px;
   padding: 0em;
   height: 150px;
-/*   width: 150px; */
+  width: 150px;
   border: black 1px solid;
   z-index: 1;
 
 
-}
+} */

@@ -3,10 +3,13 @@ import Item from './Item'
 
 const List = ({ list }) => {
   return (
-    <div className="container">
+
+    <div className="grid-container">
+
       {list.map((entity) => {
         return <Item item={entity} key = {entity} />
       } )}
+
     </div>
   )
 }

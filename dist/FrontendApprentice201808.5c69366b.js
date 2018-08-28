@@ -24349,7 +24349,7 @@ var List = function List(_ref) {
 
   return _react2.default.createElement(
     'div',
-    { className: 'container' },
+    { className: 'grid-container' },
     list.map(function (entity) {
       return _react2.default.createElement(_Item2.default, { item: entity, key: entity });
     })
@@ -24454,17 +24454,13 @@ var Container = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: '' },
+        { className: 'home' },
         _react2.default.createElement(
-          'div',
+          'h2',
           { className: 'heading' },
           this.props.title
         ),
-        _react2.default.createElement(
-          'div',
-          { className: '' },
-          _react2.default.createElement(_List2.default, { list: this.state.items })
-        )
+        _react2.default.createElement(_List2.default, { list: this.state.items })
       );
     }
   }]);
@@ -24645,7 +24641,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '63555' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '54678' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

@@ -57,16 +57,16 @@ class Container extends React.Component {
 
 
     return (
-      <div className="">
-        <div className="heading">
+      <div className="home">
+        <h2 className="heading">
           {this.props.title}
-        </div>
+        </h2>
 
 
         {/* The selected Topic's list of entities is passed to the presentational List component*/}
-        <div className="">
+
         <List list={this.state.items} />
-        </div>
+
       </div>
     )
   }

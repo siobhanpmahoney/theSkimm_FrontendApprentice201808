@@ -66,3 +66,37 @@ a {
 
 .home {
   padding: 20px 15px; }
+
+/* option 1: FLEXBOX */
+/* .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.tile-item {
+  height: 150px;
+  width: 150px;
+  position: relative;
+  padding: 0px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  box-sizing: border-box;
+} */
+/* option 2: GRID */
+.container {
+  /* margin: 0em;
+  padding: 0em; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  border: 1px solid black;
+  grid-gap: 1px; }
+
+.tile-item {
+  margin: -1px;
+  padding: 0em;
+  height: 150px;
+  /*   width: 150px; */
+  border: black 1px solid;
+  z-index: 1; }

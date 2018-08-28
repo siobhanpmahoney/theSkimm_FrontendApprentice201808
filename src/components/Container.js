@@ -52,10 +52,21 @@ class Container extends React.Component {
 
 
   render() {
+    let {pathname} = this.props.location.pathname
+
+
+
     return (
-      <div>
+      <div className="">
+        <div className="heading">
+          {this.props.title}
+        </div>
+
+
         {/* The selected Topic's list of entities is passed to the presentational List component*/}
+        <div className="">
         <List list={this.state.items} />
+        </div>
       </div>
     )
   }

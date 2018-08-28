@@ -24304,13 +24304,13 @@ var Home = function (_React$Component) {
 
 exports.default = Home;
 },{"react":"node_modules/react/index.js"}],"src/components/Item.js":[function(require,module,exports) {
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -24320,8 +24320,8 @@ var Item = function Item(_ref) {
   var item = _ref.item;
 
   return _react2.default.createElement(
-    'div',
-    null,
+    "div",
+    { className: "tile-item" },
     item
   );
 };
@@ -24349,7 +24349,7 @@ var List = function List(_ref) {
 
   return _react2.default.createElement(
     'div',
-    null,
+    { className: 'container' },
     list.map(function (entity) {
       return _react2.default.createElement(_Item2.default, { item: entity, key: entity });
     })
@@ -24449,10 +24449,22 @@ var Container = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var pathname = this.props.location.pathname.pathname;
+
+
       return _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(_List2.default, { list: this.state.items })
+        { className: '' },
+        _react2.default.createElement(
+          'div',
+          { className: 'heading' },
+          this.props.title
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: '' },
+          _react2.default.createElement(_List2.default, { list: this.state.items })
+        )
       );
     }
   }]);
@@ -24564,11 +24576,11 @@ var App = function (_Component) {
           null,
           _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/', component: _Home2.default }),
           _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/countries', render: function render() {
-              return _react2.default.createElement(_Container2.default, { fetchFunction: _this2.fetchCountries });
+              return _react2.default.createElement(_Container2.default, { title: 'Countries', fetchFunction: _this2.fetchCountries });
             }
           }),
           _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/states', render: function render() {
-              return _react2.default.createElement(_Container2.default, { fetchFunction: _this2.fetchStates });
+              return _react2.default.createElement(_Container2.default, { title: 'States', fetchFunction: _this2.fetchStates });
             }
           })
         )
@@ -24633,7 +24645,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55645' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '63555' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

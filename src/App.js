@@ -29,18 +29,20 @@ class App extends Component {
         {/* Use react router and your custom components to complete the task. */}
         <Switch>
 
+
           {/* Moved jsx elements for homepage into separate component /Home.js */}
           <Route exact path="/" component={Home} />
 
           <Route exact path='/countries' render={ () => {
-              return <Container fetchFunction = {this.fetchCountries} />  }}
+              return <Container title="Countries" fetchFunction = {this.fetchCountries} />  }}
           />
 
           <Route exact path='/states' render={ () => {
-              return <Container fetchFunction = {this.fetchStates} />  }}
+              return <Container title="States" fetchFunction = {this.fetchStates} />  }}
           />
 
         </Switch>
+
 
       </div>
     )

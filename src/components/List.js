@@ -4,8 +4,8 @@ import Item from './Item'
 const List = ({ list }) => {
   return (
     <div>
-      {list.map((element) => {
-        return <Item name={element} key = {element} />
+      {list.map((entity) => {
+        return <Item item={entity} key = {entity} />
       } )}
     </div>
   )

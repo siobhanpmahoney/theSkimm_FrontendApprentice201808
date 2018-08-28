@@ -24317,12 +24317,12 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Item = function Item(_ref) {
-  var name = _ref.name;
+  var item = _ref.item;
 
   return _react2.default.createElement(
     'div',
     null,
-    name
+    item
   );
 };
 
@@ -24350,8 +24350,8 @@ var List = function List(_ref) {
   return _react2.default.createElement(
     'div',
     null,
-    list.map(function (element) {
-      return _react2.default.createElement(_Item2.default, { name: element, key: element });
+    list.map(function (entity) {
+      return _react2.default.createElement(_Item2.default, { item: entity, key: entity });
     })
   );
 };

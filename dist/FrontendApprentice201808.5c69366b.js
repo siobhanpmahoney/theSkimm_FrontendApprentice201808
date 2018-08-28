@@ -24303,55 +24303,6 @@ var Home = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Home;
-},{"react":"node_modules/react/index.js"}],"src/components/states/StateContainer.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var StateContainer = function (_React$Component) {
-  _inherits(StateContainer, _React$Component);
-
-  function StateContainer() {
-    _classCallCheck(this, StateContainer);
-
-    return _possibleConstructorReturn(this, (StateContainer.__proto__ || Object.getPrototypeOf(StateContainer)).apply(this, arguments));
-  }
-
-  _createClass(StateContainer, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement(
-          "h1",
-          { style: { fontSize: "200%", color: "#FF5730" } },
-          "Here in Ol State"
-        )
-      );
-    }
-  }]);
-
-  return StateContainer;
-}(_react2.default.Component);
-
-exports.default = StateContainer;
 },{"react":"node_modules/react/index.js"}],"src/components/Item.js":[function(require,module,exports) {
 'use strict';
 
@@ -24565,10 +24516,6 @@ var _Home = require('./components/Home');
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _StateContainer = require('./components/states/StateContainer');
-
-var _StateContainer2 = _interopRequireDefault(_StateContainer);
-
 var _Container = require('./components/Container');
 
 var _Container2 = _interopRequireDefault(_Container);
@@ -24584,8 +24531,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import CountryContainer from './components/countries/CountryContainer'
-
 
 var App = function (_Component) {
   _inherits(App, _Component);
@@ -24595,31 +24540,15 @@ var App = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
-    _this.state = {
-      countries: []
-    };
-
     _this.fetchCountries = _countries.fetchCountries.bind(_this);
     _this.fetchStates = _states.fetchStates.bind(_this);
     return _this;
   }
 
   _createClass(App, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      // this.fetchCountries().then(values => {
-      //   this.setState({
-      //     countries: values
-      //   })
-      // })
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
-
-      // let {countries} = this.fetchCountries().then(async values => values )
-
 
       return _react2.default.createElement(
         'div',
@@ -24651,7 +24580,7 @@ var App = function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-},{"react":"node_modules/react/index.js","react-router":"node_modules/react-router/es/index.js","./components/Nav/Nav":"src/components/Nav/Nav.js","./components/Home":"src/components/Home.js","./components/states/StateContainer":"src/components/states/StateContainer.js","./components/Container":"src/components/Container.js","./api/countries":"src/api/countries.js","./api/states":"src/api/states.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router":"node_modules/react-router/es/index.js","./components/Nav/Nav":"src/components/Nav/Nav.js","./components/Home":"src/components/Home.js","./components/Container":"src/components/Container.js","./api/countries":"src/api/countries.js","./api/states":"src/api/states.js"}],"index.js":[function(require,module,exports) {
 'use strict';
 
 var _react = require('react');

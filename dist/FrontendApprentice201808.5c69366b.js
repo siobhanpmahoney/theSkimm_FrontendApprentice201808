@@ -24423,6 +24423,8 @@ var _List = require('./List');
 
 var _List2 = _interopRequireDefault(_List);
 
+var _reactRouter = require('react-router');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24430,6 +24432,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// using withRouter to access the current route, which is stored in props.location
+
 
 var Container = function (_React$Component) {
   _inherits(Container, _React$Component);
@@ -24437,17 +24441,42 @@ var Container = function (_React$Component) {
   function Container(props) {
     _classCallCheck(this, Container);
 
+    //  entities belonging to the selected topic are fetched and stored in {items} state
     var _this = _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
 
     _this.state = {
       items: []
     };
+
+    _this.fetchItems = _this.fetchItems.bind(_this);
+    _this.updateList = _this.updateList.bind(_this);
     return _this;
   }
+
+  // on mount, the proper entities will be fetched and stored in state based on the selected route
+
 
   _createClass(Container, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      this.updateList();
+    }
+
+    // if the route location changes, the entities stored in the { items } state will be cleared and reset to the topic selected
+
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.location !== this.props.location) {
+        this.updateList();
+      }
+    }
+
+    // retrieves correct list based on route via location prop
+
+  }, {
+    key: 'fetchItems',
+    value: function fetchItems() {
       var _this2 = this;
 
       this.props.fetchFunction().then(function (values) {
@@ -24455,6 +24484,16 @@ var Container = function (_React$Component) {
           items: values
         });
       });
+    }
+
+    // clears current {items} state and sets to list fetched based on location prop
+
+  }, {
+    key: 'updateList',
+    value: function updateList() {
+      this.setState({
+        items: []
+      }, this.fetchItems());
     }
   }, {
     key: 'render',
@@ -24470,8 +24509,8 @@ var Container = function (_React$Component) {
   return Container;
 }(_react2.default.Component);
 
-exports.default = Container;
-},{"react":"node_modules/react/index.js","./List":"src/components/List.js"}],"src/api/countries.js":[function(require,module,exports) {
+exports.default = (0, _reactRouter.withRouter)(Container);
+},{"react":"node_modules/react/index.js","./List":"src/components/List.js","react-router":"node_modules/react-router/es/index.js"}],"src/api/countries.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -24665,7 +24704,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53182' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55645' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

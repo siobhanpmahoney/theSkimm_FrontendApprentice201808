@@ -11,12 +11,12 @@ The `/states` and `/countries` routes are passed 2 props: the function defined i
 
 ## Component Architecture and Flow Overview
 
-States and country lists are rendered with the same container component (`Container.js`) and presentational components, `List.js` and `Item.js`.
+States and country lists are rendered with the same container component (`Container`) and presentational components, `List` and `Item`.
 
 When either endpoint is accessed via the NavBar links, the respective list is fetched with the `fetchFunction()` prop and stored within  `Container`'s `items` state. The `items` state is passed to the `List` presentational component, which maps over the array, passing each item to the `Item` presentational component, which renders the item.
 
 
-When a user toggles between the state and country endpoints, the list rendered is updated using the `componentDidMount()` lifecycle method, which clears and resets `Container`'s `items` state accordingly after comparing the current and previous route location. The comparison of route locations is accomplished by wrapping the `Container` component in react-router's `withRouter` higher order component, which provides the component with access to the `location` prop.
+When a user toggles between the state and country endpoints, the information displayed on the page updates via the `componentDidMount()` lifecycle method, which compares the current and previous route location and clears and resets `Container`'s `items` state. The comparison of route locations is accomplished by wrapping the `Container` component in react-router's `withRouter` higher order component, providing the component with access to the `location` prop.
 
 
 ## Additional Notes and Considerations

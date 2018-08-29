@@ -24280,7 +24280,7 @@ var Home = function Home() {
 };
 
 exports.default = Home;
-},{"react":"node_modules/react/index.js"}],"src/components/Item.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/components/Feature/Item.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24293,6 +24293,7 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// renders item passed from the List component
 var Item = function Item(_ref) {
   var item = _ref.item;
 
@@ -24304,7 +24305,7 @@ var Item = function Item(_ref) {
 };
 
 exports.default = Item;
-},{"react":"node_modules/react/index.js"}],"src/components/List.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/components/Feature/List.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -24321,12 +24322,13 @@ var _Item2 = _interopRequireDefault(_Item);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//maps over array of items and passes each item to the Item component, which will render it to screen. 
 var List = function List(_ref) {
   var list = _ref.list;
 
   return _react2.default.createElement(
     'div',
-    { className: 'grid-container' },
+    { className: 'list' },
     list.map(function (entity) {
       return _react2.default.createElement(_Item2.default, { item: entity, key: entity });
     })
@@ -24334,7 +24336,7 @@ var List = function List(_ref) {
 };
 
 exports.default = List;
-},{"react":"node_modules/react/index.js","./Item":"src/components/Item.js"}],"src/components/Container.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Item":"src/components/Feature/Item.js"}],"src/components/Feature/Container.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -24360,6 +24362,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 // using withRouter to access the current route, which is stored in props.location
 
 
@@ -24378,7 +24381,7 @@ var Container = function (_React$Component) {
     return _this;
   }
 
-  // on mount, the proper entities will be fetched and stored in state based on the selected route
+  // on mount, the selected topic's list of entities will be fetched and stored in state
 
 
   _createClass(Container, [{
@@ -24387,7 +24390,7 @@ var Container = function (_React$Component) {
       this.updateList();
     }
 
-    // if the route location changes, the entities stored in the { items } state will be cleared and reset to the topic selected
+    // if the route location changes, the entities stored in { items } state will be cleared and reset to the topic selected
 
   }, {
     key: 'componentDidUpdate',
@@ -24397,31 +24400,31 @@ var Container = function (_React$Component) {
       }
     }
 
-    // retrieves correct list based on route via location prop
-
-  }, {
-    key: 'fetchItems',
-    value: function fetchItems() {
-      var _this2 = this;
-
-      this.props.fetchFunction().then(function (values) {
-        _this2.setState({
-          items: values
-        });
-      });
-    }
-
-    // clears current {items} state and sets to list fetched based on location prop
+    // when component mounts, current { items } state is cleared and reset
 
   }, {
     key: 'updateList',
     value: function updateList() {
-      var _this3 = this;
+      var _this2 = this;
 
       this.setState({
         items: []
       }, function () {
-        return _this3.fetchItems();
+        return _this2.fetchItems();
+      });
+    }
+
+    // retrieves entity list using the fetchFunction() function that the Route passes to it as a prop
+
+  }, {
+    key: 'fetchItems',
+    value: function fetchItems() {
+      var _this3 = this;
+
+      this.props.fetchFunction().then(function (values) {
+        _this3.setState({
+          items: values
+        });
       });
     }
   }, {
@@ -24429,10 +24432,10 @@ var Container = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'home' },
+        { className: 'container' },
         _react2.default.createElement(
           'h2',
-          { className: 'heading' },
+          { className: 'heading feature-heading' },
           this.props.title
         ),
         _react2.default.createElement(_List2.default, { list: this.state.items })
@@ -24447,7 +24450,7 @@ var Container = function (_React$Component) {
 
 
 exports.default = (0, _reactRouter.withRouter)(Container);
-},{"react":"node_modules/react/index.js","./List":"src/components/List.js","react-router":"node_modules/react-router/es/index.js"}],"src/api/countries.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./List":"src/components/Feature/List.js","react-router":"node_modules/react-router/es/index.js"}],"src/api/countries.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -24502,7 +24505,7 @@ var _Home = require('./components/Home');
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _Container = require('./components/Container');
+var _Container = require('./components/Feature/Container');
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -24518,7 +24521,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// importing functions that fetch lists
+// importing functions responsible for fetching lists
 
 
 var App = function (_Component) {
@@ -24562,7 +24565,7 @@ var App = function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-},{"react":"node_modules/react/index.js","react-router":"node_modules/react-router/es/index.js","./components/Nav/Nav":"src/components/Nav/Nav.js","./components/Home":"src/components/Home.js","./components/Container":"src/components/Container.js","./api/countries":"src/api/countries.js","./api/states":"src/api/states.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router":"node_modules/react-router/es/index.js","./components/Nav/Nav":"src/components/Nav/Nav.js","./components/Home":"src/components/Home.js","./components/Feature/Container":"src/components/Feature/Container.js","./api/countries":"src/api/countries.js","./api/states":"src/api/states.js"}],"index.js":[function(require,module,exports) {
 'use strict';
 
 var _react = require('react');
@@ -24615,7 +24618,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '54517' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49686' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

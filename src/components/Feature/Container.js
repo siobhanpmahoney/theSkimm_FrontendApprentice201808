@@ -1,8 +1,6 @@
 import React from 'react'
 import List from './List'
-// using withRouter to access the current route, which is stored in props.location
-import { withRouter } from 'react-router'
-
+import { withRouter } from 'react-router' // using withRouter to access the current route, which is stored in props.location
 
 
 class Container extends React.Component {
@@ -16,20 +14,27 @@ class Container extends React.Component {
   }
 
 
-  // on mount, the proper entities will be fetched and stored in state based on the selected route
+  // on mount, the selected topic's list of entities will be fetched and stored in state
   componentDidMount() {
     this.updateList()
   }
 
 
-  // if the route location changes, the entities stored in the { items } state will be cleared and reset to the topic selected
+  // if the route location changes, the entities stored in { items } state will be cleared and reset to the topic selected
   componentDidUpdate(prevProps) {
     if (prevProps.location.pathname !== this.props.location.pathname) {
       this.updateList()
     }
   }
 
-  // retrieves correct list based on route via location prop
+  // when component mounts, current { items } state is cleared and reset
+  updateList() {
+    this.setState({
+      items: []
+    }, () => this.fetchItems())
+  }
+
+  // retrieves entity list using the fetchFunction() function that the Route passes to it as a prop
   fetchItems() {
     this.props.fetchFunction()
     .then(values => {
@@ -40,23 +45,18 @@ class Container extends React.Component {
   }
 
 
-  // clears current {items} state and sets to list fetched based on location prop
-  updateList() {
-    this.setState({
-      items: []
-    }, () => this.fetchItems())
-  }
+
 
 
   render() {
     return (
-      <div className='home'>
-        <h2 className='heading'>
+      <div className='container'>
+        <h2 className='heading feature-heading'>
           {this.props.title}
         </h2>
 
 
-        {/* The selected Topic's list of entities is passed to the presentational List component*/}
+        {/* The selected topic's entity list is passed to the presentational List component*/}
 
         <List list={this.state.items} />
 

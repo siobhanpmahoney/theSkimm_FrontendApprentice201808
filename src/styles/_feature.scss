@@ -1,7 +1,14 @@
-.grid-container {
+
+.container {
+  padding-top: 20px;
+}
+
+
+.list {
   display: flex;
   flex-flow: row wrap;
   position: relative;
+  justify-content: center;
  }
 
 

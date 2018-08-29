@@ -37,6 +37,9 @@ a {
 .copy {
   text-align: center; }
 
+.feature-heading {
+  padding-bottom: 15px; }
+
 .nav {
   max-width: 100%;
   width: 500px;
@@ -64,13 +67,17 @@ a {
 .nav__list-item--active {
   background-color: #fbe122; }
 
-.home, .index {
+.home {
   padding: 20px 15px; }
 
-.grid-container {
+.container {
+  padding-top: 20px; }
+
+.list {
   display: flex;
   flex-flow: row wrap;
-  position: relative; }
+  position: relative;
+  justify-content: center; }
 
 .tile-item {
   height: 150px;

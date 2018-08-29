@@ -9,13 +9,10 @@ class Container extends React.Component {
   constructor(props) {
     super(props)
 
-      //  entities belonging to the selected topic are fetched and stored in {items} state
+    //  entities belonging to the selected topic are fetched and stored in {items} state
     this.state = {
       items: []
     }
-
-    this.fetchItems = this.fetchItems.bind(this)
-    this.updateList = this.updateList.bind(this)
   }
 
 
@@ -32,7 +29,7 @@ class Container extends React.Component {
     }
   }
 
-// retrieves correct list based on route via location prop
+  // retrieves correct list based on route via location prop
   fetchItems() {
     this.props.fetchFunction()
     .then(values => {
@@ -43,11 +40,11 @@ class Container extends React.Component {
   }
 
 
-    // clears current {items} state and sets to list fetched based on location prop
+  // clears current {items} state and sets to list fetched based on location prop
   updateList() {
     this.setState({
       items: []
-    }, this.fetchItems())
+    }, () => this.fetchItems())
   }
 
 
@@ -57,8 +54,8 @@ class Container extends React.Component {
 
 
     return (
-      <div className="home">
-        <h2 className="heading">
+      <div className='home'>
+        <h2 className='heading'>
           {this.props.title}
         </h2>
 

@@ -24250,7 +24250,7 @@ function Nav(props) {
   );
 }
 },{"react":"node_modules/react/index.js","./NavList":"src/components/Nav/NavList.js"}],"src/components/Home.js":[function(require,module,exports) {
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -24258,7 +24258,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -24280,20 +24280,20 @@ var Home = function (_React$Component) {
   }
 
   _createClass(Home, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "home" },
+        'div',
+        { className: 'home' },
         _react2.default.createElement(
-          "h2",
-          { className: "heading" },
-          "Welcome to the States and Countries app."
+          'h2',
+          { className: 'heading' },
+          'Welcome to the States and Countries app.'
         ),
         _react2.default.createElement(
-          "p",
-          { className: "copy" },
-          "Select a topic above!"
+          'p',
+          { className: 'copy' },
+          'Select a topic above!'
         )
       );
     }
@@ -24398,9 +24398,6 @@ var Container = function (_React$Component) {
     _this.state = {
       items: []
     };
-
-    _this.fetchItems = _this.fetchItems.bind(_this);
-    _this.updateList = _this.updateList.bind(_this);
     return _this;
   }
 
@@ -24442,9 +24439,13 @@ var Container = function (_React$Component) {
   }, {
     key: 'updateList',
     value: function updateList() {
+      var _this3 = this;
+
       this.setState({
         items: []
-      }, this.fetchItems());
+      }, function () {
+        return _this3.fetchItems();
+      });
     }
   }, {
     key: 'render',
@@ -24546,18 +24547,12 @@ var App = function (_Component) {
   function App() {
     _classCallCheck(this, App);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
-
-    _this.fetchCountries = _countries.fetchCountries.bind(_this);
-    _this.fetchStates = _states.fetchStates.bind(_this);
-    return _this;
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
   }
 
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       return _react2.default.createElement(
         'div',
         null,
@@ -24572,13 +24567,11 @@ var App = function (_Component) {
           null,
           _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/', component: _Home2.default }),
           _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/countries', render: function render() {
-              return _react2.default.createElement(_Container2.default, { title: 'Countries', fetchFunction: _this2.fetchCountries });
-            }
-          }),
+              return _react2.default.createElement(_Container2.default, { title: 'Countries', fetchFunction: _countries.fetchCountries });
+            } }),
           _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/states', render: function render() {
-              return _react2.default.createElement(_Container2.default, { title: 'States', fetchFunction: _this2.fetchStates });
-            }
-          })
+              return _react2.default.createElement(_Container2.default, { title: 'States', fetchFunction: _states.fetchStates });
+            } })
         )
       );
     }
@@ -24641,7 +24634,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '60979' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55568' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

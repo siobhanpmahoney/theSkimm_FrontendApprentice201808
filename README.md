@@ -2,6 +2,17 @@
 
 The States and Countries app lists states and countries at endpoints `/states` and `/countries`, respectively.
 
+## Installation
+
+Clone the repository, navigate into the directory from your terminal, and run:
+
+```
+yarn install
+yarn start
+```
+
+Once the server is running, the port from which it's running will be indicated in your terminal. 
+
 
 ## Routes Overview
 

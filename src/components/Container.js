@@ -24,7 +24,7 @@ class Container extends React.Component {
 
   // if the route location changes, the entities stored in the { items } state will be cleared and reset to the topic selected
   componentDidUpdate(prevProps) {
-    if (prevProps.location !== this.props.location) {
+    if (prevProps.location.pathname !== this.props.location.pathname) {
       this.updateList()
     }
   }
@@ -49,10 +49,6 @@ class Container extends React.Component {
 
 
   render() {
-    let {pathname} = this.props.location.pathname
-
-
-
     return (
       <div className='home'>
         <h2 className='heading'>
@@ -69,4 +65,5 @@ class Container extends React.Component {
   }
 }
 
+// wrapping component with react-router's withRouter
 export default withRouter(Container)

@@ -24415,7 +24415,7 @@ var Container = function (_React$Component) {
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate(prevProps) {
-      if (prevProps.location !== this.props.location) {
+      if (prevProps.location.pathname !== this.props.location.pathname) {
         this.updateList();
       }
     }
@@ -24450,9 +24450,6 @@ var Container = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var pathname = this.props.location.pathname.pathname;
-
-
       return _react2.default.createElement(
         'div',
         { className: 'home' },
@@ -24468,6 +24465,9 @@ var Container = function (_React$Component) {
 
   return Container;
 }(_react2.default.Component);
+
+// wrapping component with react-router's withRouter
+
 
 exports.default = (0, _reactRouter.withRouter)(Container);
 },{"react":"node_modules/react/index.js","./List":"src/components/List.js","react-router":"node_modules/react-router/es/index.js"}],"src/api/countries.js":[function(require,module,exports) {
@@ -24540,6 +24540,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// importing functions that fetch lists
+
 
 var App = function (_Component) {
   _inherits(App, _Component);
@@ -24635,7 +24638,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '61766' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '63466' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

@@ -3,6 +3,8 @@ import { Switch, Route, Redirect } from 'react-router'
 import Nav from './components/Nav/Nav'
 import Home from './components/Home'
 import Container from './components/Container'
+
+// importing functions that fetch lists
 import { fetchCountries } from './api/countries'
 import { fetchStates } from './api/states'
 
@@ -16,10 +18,12 @@ class App extends Component {
         {/* Use react router and your custom components to complete the task. */}
         <Switch>
 
-
-          {/* Moved jsx elements for homepage into separate component /Home.js */}
+          {/* Moved jsx elements for homepage into separate component, /Home.js */}
           <Route exact path='/' component={Home} />
 
+
+
+          {/* Routes for /states and /countries  */}
           <Route exact path='/countries' render={() => {
             return <Container title="Countries" fetchFunction = {fetchCountries} /> }
           } />
@@ -29,7 +33,9 @@ class App extends Component {
           } />
 
 
-          <Redirect to="/" />
+
+        {/* Redirects to Home if path does not match "/", "/states", or "/countries" */}
+          <Redirect to='/' />
 
         </Switch>
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route } from 'react-router'
+import { Switch, Route, Redirect } from 'react-router'
 import Nav from './components/Nav/Nav'
 import Home from './components/Home'
 import Container from './components/Container'
@@ -29,10 +29,10 @@ class App extends Component {
           } />
 
 
-
-
+          <Redirect to="/" />
 
         </Switch>
+
 
 
       </div>

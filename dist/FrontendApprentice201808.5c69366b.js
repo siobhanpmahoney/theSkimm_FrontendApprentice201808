@@ -24571,7 +24571,8 @@ var App = function (_Component) {
             } }),
           _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/states', render: function render() {
               return _react2.default.createElement(_Container2.default, { title: 'States', fetchFunction: _states.fetchStates });
-            } })
+            } }),
+          _react2.default.createElement(_reactRouter.Redirect, { to: '/' })
         )
       );
     }
@@ -24634,7 +24635,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55568' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '61766' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

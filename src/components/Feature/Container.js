@@ -3,6 +3,8 @@ import List from './List'
 import { withRouter } from 'react-router' // using withRouter to access the current route, which is stored in props.location
 
 
+// Container component takes a 'fetchItems' prop and uses it to populate the tiled list
+
 class Container extends React.Component {
   constructor(props) {
     super(props)

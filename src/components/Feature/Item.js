@@ -1,7 +1,6 @@
 import React from 'react'
 
-
-// renders item passed from the List component
+// Renders item passed from the List component
 const Item = ({ item }) => {
   return (
     <div className="tile-item">

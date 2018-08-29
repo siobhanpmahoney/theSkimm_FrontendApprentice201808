@@ -6,7 +6,6 @@ import Container from './components/Feature/Container'
 import { fetchCountries } from './api/countries'
 import { fetchStates } from './api/states'
 
-
 class App extends Component {
   render () {
     return (

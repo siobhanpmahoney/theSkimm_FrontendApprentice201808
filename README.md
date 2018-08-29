@@ -11,7 +11,7 @@ yarn install
 yarn start
 ```
 
-Once the server is running, the port from which it's running will be indicated in your terminal. 
+Once the server is running, the port from which it's running will be indicated in your terminal.
 
 
 ## Routes Overview
@@ -22,7 +22,7 @@ The `/states` and `/countries` routes are passed 2 props: the function defined i
 
 ## Component Architecture and Flow Overview
 
-States and country lists are rendered with the same container component (`Container`) and presentational components, `List` and `Item`.
+States and country lists are rendered with the same container component (`Container`) and presentational components, `List` and `Item`, all of which are housed in the `/components/Feature` directory.
 
 When either endpoint is accessed via the NavBar links, the respective list is fetched with the `fetchFunction()` prop and stored within  `Container`'s `items` state. The `items` state is passed to the `List` presentational component, which maps over the array, passing each item to the `Item` presentational component, which renders the item.
 
